@@ -8,8 +8,9 @@
   };
 
   const createCard = (cardName) => {
-    const divContainerCards = document.querySelector('#divContainerCards');
-    const divCol = document.createElement('div');
+    const divContainerCards = document.querySelector('#divContainerCards'),
+          divCol = document.createElement('div');
+    
     divCol.classList.add('col');
     divContainerCards.append(divCol);
 
@@ -18,7 +19,6 @@
     divCol.append(divCard);
 
     const imgCard = document.createElement('img');
-    imgCard.src = 'assets/img/Cakes/Cake-11.png';
     imgCard.src = `assets/img/Cakes/${cardName}.png`;
     imgCard.alt = cardName;
     imgCard.classList.add('card-img-top');
@@ -33,11 +33,12 @@
     divCard.append(button);
   };
 
-  const cakes = createCake(25);
+  // const placeCards = (cakes) => {
+  //   for(let cake of cakes) createCard(cake);
+  // };
 
-  const placeCards = (cakes) => {
-    for(let cake of cakes) createCard(cake);
-  };
-  
+  const placeCards = (cakes) => cakes.forEach(cake => createCard(cake));
+
+  const cakes = createCake(25);
   placeCards(cakes);
 })();
